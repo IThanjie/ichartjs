@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="ichart.1.2.min.js"></script>
+	<style type="text/css">
+		
+	</style>
+</head>
+<body>
+
+	<div id='canvasDiv'></div>
+
+
+	<script type="text/javascript">
+		//定义数据
+	var data = [
+		{name : 'H',value : 7,color:'#a5c2d5'},
+	   	{name : 'E',value : 5,color:'#cbab4f'},
+	   	{name : 'L',value : 12,color:'#76a871'},
+	   	{name : 'L',value : 12,color:'#76a871'},
+	   	{name : 'O',value : 15,color:'#a56f8f'},
+	   	{name : 'W',value : 13,color:'#c12c44'},
+	   	{name : 'O',value : 15,color:'#a56f8f'},
+	   	{name : 'R',value : 18,color:'#9f7961'},
+	   	{name : 'L',value : 12,color:'#76a871'},
+	   	{name : 'D',value : 4,color:'#6f83a5'}
+	 ];
+	 iChart (function(){	
+		var chart = new iChart.Column3D({
+			fit:true,//是否自适应
+			padding : 50, //设置padding值
+			border :{
+				enable : true, //是否开启边框特性
+				color : 'red', //边框颜色
+				width : 3,//边框宽度
+				radius : 5,//:边框圆角值
+			},
+			render : 'canvasDiv',//渲染的Dom目标,canvasDiv为Dom的ID
+			data: data,//绑定数据
+			title : {
+				text :'Hello World\'s Height In Alphabet',//设置标题
+				font : 'sans-serif', //同 css 的 font-family
+				fontsize : 24, //同 css 的 font-size
+				fontweight : 600, //同 css 的 font-weight
+				color : '#ffffff', //同 css 的 color
+				title_algin : 'left',
+
+				},
+			subtitle : {
+				text :'hello~word',//设置副标题
+				font : 'sans-serif', //同 css 的 font-family
+				fontsize : 18, //同 css 的 font-size
+				fontweight : 600, //同 css 的 font-weight
+				color : '#c7c7c7', //同 css 的 color
+				offsetx:-146,//可选设置偏移量类似float，
+				},
+			label:{
+				fontsize : 18,
+				color : 'red',
+				rotate : -45,
+				textBaseline : 'middle',
+				textAlign : 'right'
+				},
+			// footnote : {
+			// 	color : '#4C0002',
+			// 	fontsize : 24,
+			// },
+			legend: { //开启图例配置项
+				enable : true ,//是否开启
+				align : 'left', //控制其水平方向的对齐方式 left/center/right
+				valign: 'top', //控制其垂直方向的对齐方式 top/middle/bottom
+				row : 1,//行布局
+				column :'max', //行布局
+				// row :'max',//列布局
+				// column : 1,//列布局
+				offsetx : 115, //可设置偏移量
+				offsety : 15, //可设置偏移量 ,//设置
+				color:'red', //可设置图里文字颜色
+				fontsize : 18,//可设置图里文字大小
+				line_height: 20 ,//可设置行高。以避免多行重叠
+				sign : 'square-bar', //符号的形状
+				sign_size : 10,//符号的大小
+				sign_space : 6,//符号与文字的间距
+				text_with_sign_color : true, //是否文字的颜色与小图标的颜色一致。(默认为false)
+			},
+			tip : { //开启提示框功能 
+				enable : true,
+				showType : 'fixed ', //提示框的类型 默认为'follow'(跟随) fixed（固定）
+				animation : true, //是否开启动画效果
+				fade_duration: 500, //渐入渐出过程所用的时间。单位毫秒。
+			},
+			sub_option: { 
+				//每个图表都是由不同形状的小组件构成，比如：饼图是由扇形构成。柱形图、条形图是由矩形构成。折线图是由线段构成。每个子组件均是一个对象。ichartjs 中设置子组件统一用 sub_option 配置项。而每个配置项的具体内容，需要了解子组件的具体类型
+			},
+			width : 800,//设置宽度，默认单位为px
+			height : 400,//设置高度，默认单位为px
+			align : 'center', //绘主图区在图表中的水平对齐位置(。如果想要达到很精确的位置。你应该配合位置偏移量使用)
+			offsetx : 20,//x 轴方向的偏移量，正数向右偏移，负数向左偏移。
+			offsety : 20,//y 轴方向的偏移量，正数向下偏移，负数向上偏移。
+			animation : true,//是否启用过渡动画,false则跳过过渡动画.(默认为false)
+			animation_duration : 1500,//指定动画持续时间，单位毫秒。此时间会与运行平台的FPS有关。(默认为1000)
+			// background_color : '#F3F3F3',//组件中背景颜色(填充色)的值。(默认为'FEFEFE')
+			// gradient : true,//是否开启渐变
+			// color_factor:0.5,//颜色渐变因子。取值越大渐变效果越大，颜色变化是基于背景颜色的。取值范围0.01- 0.5}.默认 0.15。
+			// gradient_mode : 'LinearGradientUpDown', //可选值：'LinearGradientUpDown'：上-下、'LinearGradientDownUp'：下-上、'LinearGradientLeftRight'：左-右、'LinearGradientRightLeft'：右-左、'RadialGradientOutIn'：外-内、'RadialGradientInOut'：内-外。饼图只有外-内，内-外模式选项
+
+			shadow:true,//激活阴影
+			shadow_blur : 10,//阴影效果的模糊值
+			shadow_color : '#000',//:阴影颜色
+			shadow_offsetx : 2,//:阴影 x 轴偏移量，正数向右偏移，负数向左偏移。
+			shadow_offsety : 2,//: 阴影 y 轴偏移量，正数向下偏移，负数向上偏移。
+			shadow_color:'#c7c7c7',//设置阴影颜色
+			animation_timing_function : 'easeIn',//启用动画的动作函数
+			
+			coordinate:{//配置自定义坐标轴、坐标系 
+					// width: '100%',//坐标系的宽度
+					// height: '75%',//坐标系的高度
+					//valid_width：//设置有效的坐标区域宽度，必须要小于坐标宽度。
+					//valid_height：//设置有效的坐标区域高度，必须要小于坐标高度。
+					background_color : '#ccc',//背景色
+					striped: true, //隔行变色,意只有配置了背景色的坐标系才会生效
+ 				axis: { //配置四边轴线的属性
+					enable : true,//是否设置其值
+					width: [0,0,2,2],//轴四边的宽度，如果是数值，则代表四周均为此值，若为数组，则长度必须为4。其 4 个值依次代表上-右-下-左
+					color : '#333333',//轴的颜色
+					},
+				wall_style:[
+					{color : '#333333'},
+					{color : '#b2b2d3'},
+					{color : '#a6a6cb'},
+					{color : '#333333'},
+					{color : '#74749b'},
+					{color : '#a6a6cb'},
+				],
+				grids : {
+					// horizontal：水平网格配置项。
+					// vertical：垂直网格配置项。
+					// 这两个属性的具体配置如下：
+					// way：网格设置方式，可选值[share_alike，given_value]。
+					// value：根据属性 way 值的不同有着不同的意义，当 way 取值 share_alike 时表示网格间隙的数量。间隙的数量=网格线数量-1。当 way 取值 given_value 时表示网格间隙的距离。间隙的数量=坐标轴宽度/网格间隙的距离。
+					vertical:{ //垂直网格配置项
+						way:'share_alike',
+						value:10,
+					 },
+					 horizontal:{ //水平网格配置项
+						way:'share_alike',
+						value:10,
+					 },
+				},
+				scale:[{//配置自定义值轴
+					position : 'left',//配置左值轴	
+					start_scale : 0,//起始刻度值。(默认为0)
+					end_scale : 24,//结束刻度值。这个值若没有给定，则用max_scale作为结束的刻度值。(默认为undefined)
+					scale_space : 3,//刻度值的间距值，要小于(最大值-最小值)。(默认为undefined)
+					scale2grid : true,//指示是否网格与刻度保持一致。(默认为true)
+					scale_enable : false,//是否显示刻度线。(默认为true)
+					scale_size: 50,//刻度线的粗细。单位px。(默认为1)
+					scale_width : 4,//刻度的长短。单位px。(默认为4)
+					scale_share : 50,//刻度的数量。(默认为5)
+					scale_color : '#333333',//刻度线的颜色。(默认为'#333333')
+					offsetx : 0,
+					// scaleAlign :,//刻度线对齐方式。
+					// labels : 自定义的刻度文本，一般作为非值轴的轴文本的设置
+					 listeners:{//配置事件
+						parseText:function(t,x,y){//设置解析值轴文本
+
+							return {text:t+" cm"}
+						}
+						// click:function(d, t){
+						// 		alert(d.get('value')+"%");
+						// 	}
+					}
+				}]
+			}
+		});
+		//调用绘图方法开始绘图
+		chart.draw();
+	});
+	</script>
+</body>
+</html>
